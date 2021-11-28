@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>JustSail</title>
+</head>
+<body>
+    <main>
+        <meta>
+        <section>
+        <header>
+        <h1>Museums in Sweden</h1>
+        </header>
+        <div role=application>
+        <p>For more information, click on the selected icon</p>
+        <div>
+        <div id=map_canvas></div>
+        </div>
+        </div>
+        </section>
+        </main>
+        <script>
+            function initialize() {
+               var mapOptions = {
+               center: new google.maps.LatLng(58.187185,15.1019575),
+               zoom: 6,
+               mapTypeId: google.maps.MapTypeId.TERRAIN,
+            }; 
+    
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+               mapOptions); 
+
+            var museum1 = new google.maps.Marker({
+               position: new google.maps.LatLng(56.1614029, 15.5995131),
+               map: map,
+               icon: '../../../maps_icons/museum.svg'
+            });
+
+            var infowindow1 = new google.maps.InfoWindow({
+               content: '<div class="info"><h3>Naval Museum</h3><img src="../../images/marinmuseum-min.jpg" /><div style="clear:both"></div><a href="../marinmuseum.html" target="_blank"><button><h4>Read more</h4></button></a></div>'
+            });
+
+            google.maps.event.addListener(museum1, 'click', function() {
+               infowindow1.open(map, museum1);
+            });
+            
+            
+            var museum2 = new google.maps.Marker({
+               position: new google.maps.LatLng(58.4098582, 15.5230975),
+               map: map,
+               icon: '../../../maps_icons/museum.svg'
+            });
+
+            var infowindow2 = new google.maps.InfoWindow({
+               content: '<div class="info"><h3>Swedish Air<br /> Force Museum</h3><img src="../../images/air-min.jpg" /><div style="clear:both"></div><a href="../air.html" target="_blank"><button><h4>Read more</h4></button></a></div>'
+            });
+
+            google.maps.event.addListener(museum2, 'click', function() {
+               infowindow2.open(map, museum2);
+            });
+            
+            
+            var museum3 = new google.maps.Marker({
+               position: new google.maps.LatLng(60.6002163, 15.6165818),
+               map: map,
+               icon: '../../../maps_icons/museum.svg'
+            });
+
+            var infowindow3 = new google.maps.InfoWindow({
+               content: '<div class="info"><h3>Falun Mine Museum</h3><img src="../../images/falungruva-min.jpg" /><div style="clear:both"></div><a href="../falungruva.html" target="_blank"><button><h4>Read more</h4></button></a></div>'
+            });
+
+            google.maps.event.addListener(museum3, 'click', function() {
+               infowindow3.open(map, museum3);
+            });
+            
+            
+            var museum4 = new google.maps.Marker({
+               position: new google.maps.LatLng(57.7714294, 11.881156),
+               map: map,
+               icon: '../../../maps_icons/museum.svg'
+            });
+
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AAAA4&amp;language=en"></script>
+</body>
+</html>
